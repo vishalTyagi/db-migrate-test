@@ -56,6 +56,7 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" scope="PROVIDED" name="grails-2.5.0 (3)" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="grails-2.5.0" level="application" />
     <orderEntry type="module-library" exported="">
       <library name="Grails User Library (db-migrate-test-grailsPlugins)">
         <CLASSES />
@@ -65,4 +66,3 @@
     </orderEntry>
   </component>
 </module>
-

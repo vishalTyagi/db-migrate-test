@@ -1,8 +1,12 @@
 package db.migrate.test
 
+import org.apache.commons.codec.binary.Base64
+
 import javax.crypto.BadPaddingException
 import javax.crypto.Cipher
 import javax.crypto.IllegalBlockSizeException
+import javax.crypto.KeyGenerator
+import javax.crypto.SecretKey
 import javax.crypto.spec.SecretKeySpec
 import java.security.InvalidKeyException
 import java.security.Key
@@ -12,6 +16,11 @@ class PersonController {
     Cipher cipher
     String algorithm = "AES"//"DESede";
     String KEY = "Bar12345Bar12345"; // 128 bit key
+
+    KeyGenerator keyGenerator = KeyGenerator.getInstance("AES");
+
+    SecretKey secretKey = keyGenerator.generateKey();
+
     def index() {
         String text = params.text//"Hello World this is the plain text";
         String key = "Bar12345Bar12345"; // 128 bit key
@@ -30,6 +39,8 @@ class PersonController {
     }
 
     def two() {
+        cipher = Cipher.getInstance("AES");
+        keyGenerator.init(128);
         render(view: "two")
     }
 
@@ -37,25 +48,9 @@ class PersonController {
         String text = params.text
         String encryptedText = ""
         if (text) {
-            /*KeyGenerator keyGenerator = KeyGenerator.getInstance("AES");
-            keyGenerator.init(128);
-            SecretKey secretKey = keyGenerator.generateKey();*/
-            //cipher = Cipher.getInstance("AES");
-            /* Key aesKey = new SecretKeySpec(KEY.getBytes(), "AES");
-             Cipher cipher = Cipher.getInstance("AES");
-             cipher.init(Cipher.ENCRYPT_MODE, aesKey)
-             println "--plain text----->> ${text}"
-             encryptedText = new String(cipher.doFinal(text.getBytes()))
- //            encryptedText = encrypt(text, secretKey);
-             println "Encrypted Text After Encryption: " + encryptedText
-             cipher.init(Cipher.DECRYPT_MODE, aesKey)
-             println "-----encrypted text ---->> ${encryptedText}"
-             String normalText = new String(cipher.doFinal(encryptedText.bytes))
-             println "Decrypted Text After Decryption: " + normalText*/
-            Key key = new SecretKeySpec(KEY.getBytes(), algorithm);
             cipher = Cipher.getInstance(algorithm);
             println "----------------------->>> ${text}"
-            encryptedText = encrypt1(text, key);
+            encryptedText = myEncrypt(text);
             println "------>>> encrypted text -->> ${encryptedText}"
         }
         render(view: 'my', model: [encryptedText: encryptedText])
@@ -65,64 +60,30 @@ class PersonController {
         String encryptedText = params.encryptedText
         String normalText = ""
         if (encryptedText) {
-            /*   KeyGenerator keyGenerator = KeyGenerator.getInstance("AES");
-               keyGenerator.init(128);
-               SecretKey secretKey = keyGenerator.generateKey();*//*
-            Key aesKey = new SecretKeySpec(KEY.getBytes(), "AES");
-            Cipher cipher = Cipher.getInstance("AES");
-            cipher.init(Cipher.DECRYPT_MODE, aesKey)
-            println "-----encrypted text ---->> ${encryptedText}"
-            normalText = new String(cipher.doFinal(encryptedText.bytes))
-            println "Decrypted Text After Decryption: " + normalText*/
             Key key = new SecretKeySpec(KEY.getBytes(), algorithm);
             cipher = Cipher.getInstance(algorithm);
             println "----------------------->>> ${encryptedText}"
-            normalText = decrypt1(encryptedText, key);
+            normalText = myDecrypt(encryptedText);
             println "------>>> decryptrd text -->> ${normalText}"
         }
         render(view: "two", model: [normalText: normalText])
     }
 
-    /*String encrypt(String plainText, SecretKey secretKey)
-            throws Exception {
+    public String myEncrypt(String plainText) {
         byte[] plainTextByte = plainText.getBytes();
         cipher.init(Cipher.ENCRYPT_MODE, secretKey);
         byte[] encryptedByte = cipher.doFinal(plainTextByte);
-        String encryptedText = new String(encryptedByte)
-        *//*Base64.Encoder encoder = Base64.getEncoder();
-        String encryptedText = encoder.encodeToString(encryptedByte);*//*
+        byte[] byteArray = Base64.encodeBase64(encryptedByte);
+        String encryptedText = new String(byteArray)
         return encryptedText;
     }
 
-    String decrypt(String encryptedText, SecretKey secretKey)
-            throws Exception {
-        *//*Base64.Decoder decoder = Base64.getDecoder();
-        byte[] encryptedTextByte = decoder.decode(encryptedText);*//*
-        byte[] encryptedTextByte = encryptedText.bytes
+    public String myDecrypt(String encryptedText) {
+        byte[] decodeBytes = Base64.decodeBase64(encryptedText)
         cipher.init(Cipher.DECRYPT_MODE, secretKey);
-        byte[] decryptedByte = cipher.doFinal(encryptedTextByte);
+        byte[] decryptedByte = cipher.doFinal(decodeBytes);
         String decryptedText = new String(decryptedByte);
         return decryptedText;
     }
-*/
-
-    private String encrypt1(String input, Key key) throws InvalidKeyException, BadPaddingException,
-            IllegalBlockSizeException {
-        cipher.init(Cipher.ENCRYPT_MODE, key);
-        byte[] inputBytes = input.getBytes();
-        String encrypt = new String(cipher.doFinal(inputBytes))
-        String encodeStr = encrypt.encodeAsBase64()
-        return encodeStr;
-    }
-
-    private String decrypt1(String encryptionBytes, Key key) throws InvalidKeyException,
-            BadPaddingException, IllegalBlockSizeException {
-//        BASE64Decoder base64decoder = new BASE64Decoder();
-//        System.out.println(myEncryptionKey);
-        byte[] encryptedText = encryptionBytes.decodeBase64()
-        cipher.init(Cipher.DECRYPT_MODE, key);
-        byte[] recoveredBytes = cipher.doFinal(encryptedText);
-        String recovered = new String(recoveredBytes);
-        return recovered;
-    }
 }
+
