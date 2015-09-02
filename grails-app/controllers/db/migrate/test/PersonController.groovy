@@ -48,9 +48,10 @@ class PersonController {
         String text = params.text
         String encryptedText = ""
         if (text) {
+            Key key = new SecretKeySpec(KEY.getBytes(), algorithm);
             cipher = Cipher.getInstance(algorithm);
             println "----------------------->>> ${text}"
-            encryptedText = myEncrypt(text);
+            encryptedText = myEncrypt(text, key);
             println "------>>> encrypted text -->> ${encryptedText}"
         }
         render(view: 'my', model: [encryptedText: encryptedText])
@@ -63,24 +64,24 @@ class PersonController {
             Key key = new SecretKeySpec(KEY.getBytes(), algorithm);
             cipher = Cipher.getInstance(algorithm);
             println "----------------------->>> ${encryptedText}"
-            normalText = myDecrypt(encryptedText);
+            normalText = myDecrypt(encryptedText, key);
             println "------>>> decryptrd text -->> ${normalText}"
         }
         render(view: "two", model: [normalText: normalText])
     }
 
-    public String myEncrypt(String plainText) {
+    public String myEncrypt(String plainText, Key key) {
         byte[] plainTextByte = plainText.getBytes();
-        cipher.init(Cipher.ENCRYPT_MODE, secretKey);
+        cipher.init(Cipher.ENCRYPT_MODE, key);
         byte[] encryptedByte = cipher.doFinal(plainTextByte);
         byte[] byteArray = Base64.encodeBase64(encryptedByte);
         String encryptedText = new String(byteArray)
         return encryptedText;
     }
 
-    public String myDecrypt(String encryptedText) {
+    public String myDecrypt(String encryptedText, Key key) {
         byte[] decodeBytes = Base64.decodeBase64(encryptedText)
-        cipher.init(Cipher.DECRYPT_MODE, secretKey);
+        cipher.init(Cipher.DECRYPT_MODE, key);
         byte[] decryptedByte = cipher.doFinal(decodeBytes);
         String decryptedText = new String(decryptedByte);
         return decryptedText;

@@ -37,11 +37,10 @@
       <file leaf-file-name="PersonController.groovy" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/grails-app/controllers/db/migrate/test/PersonController.groovy">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.7241379" vertical-offset="555" max-vertical-offset="1200">
-              <caret line="80" column="49" selection-start-line="80" selection-start-column="49" selection-end-line="80" selection-end-column="49" />
+            <state vertical-scroll-proportion="0.69827586" vertical-offset="0" max-vertical-offset="1215">
+              <caret line="42" column="31" selection-start-line="42" selection-start-column="31" selection-end-line="42" selection-end-column="31" />
               <folding>
                 <element signature="e#25#70#0" expanded="true" />
-                <element signature="n#!!block;n#two#0;n#!!block;n#PersonController#0" expanded="true" />
                 <element signature="n#!!block;n#test#0;n#!!block;n#PersonController#0" expanded="true" />
                 <element signature="n#!!block;n#test2#0;n#!!block;n#PersonController#0" expanded="true" />
                 <element signature="n#!!block;n#myEncrypt#0;n#!!block;n#PersonController#0" expanded="true" />
@@ -429,12 +428,12 @@
       <workItem from="1440661345759" duration="1582000" />
       <workItem from="1441014761402" duration="1828000" />
       <workItem from="1441172752295" duration="8323000" />
-      <workItem from="1441190152520" duration="2606000" />
+      <workItem from="1441190152520" duration="4012000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="22063000" />
+    <option name="totallyTimeSpent" value="23469000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="24" width="1301" height="744" extended-state="6" />
@@ -503,7 +502,6 @@
           <caret line="12" column="27" selection-start-line="12" selection-start-column="27" selection-end-line="12" selection-end-column="27" />
           <folding>
             <element signature="e#25#70#0" expanded="true" />
-            <element signature="n#!!block;n#two#0;n#!!block;n#PersonController#0" expanded="true" />
             <element signature="n#!!block;n#test#0;n#!!block;n#PersonController#0" expanded="true" />
             <element signature="n#!!block;n#test2#0;n#!!block;n#PersonController#0" expanded="true" />
             <element signature="n#!!block;n#myEncrypt#0;n#!!block;n#PersonController#0" expanded="true" />
@@ -542,7 +540,6 @@
           <caret line="5" column="23" selection-start-line="5" selection-start-column="23" selection-end-line="5" selection-end-column="23" />
           <folding>
             <element signature="e#25#70#0" expanded="true" />
-            <element signature="n#!!block;n#two#0;n#!!block;n#PersonController#0" expanded="true" />
             <element signature="n#!!block;n#test#0;n#!!block;n#PersonController#0" expanded="true" />
             <element signature="n#!!block;n#test2#0;n#!!block;n#PersonController#0" expanded="true" />
             <element signature="n#!!block;n#myEncrypt#0;n#!!block;n#PersonController#0" expanded="true" />
@@ -581,7 +578,6 @@
           <caret line="5" column="23" selection-start-line="5" selection-start-column="23" selection-end-line="5" selection-end-column="23" />
           <folding>
             <element signature="e#25#70#0" expanded="true" />
-            <element signature="n#!!block;n#two#0;n#!!block;n#PersonController#0" expanded="true" />
             <element signature="n#!!block;n#test#0;n#!!block;n#PersonController#0" expanded="true" />
             <element signature="n#!!block;n#test2#0;n#!!block;n#PersonController#0" expanded="true" />
             <element signature="n#!!block;n#myEncrypt#0;n#!!block;n#PersonController#0" expanded="true" />
@@ -620,7 +616,6 @@
           <caret line="5" column="23" selection-start-line="5" selection-start-column="23" selection-end-line="5" selection-end-column="23" />
           <folding>
             <element signature="e#25#70#0" expanded="true" />
-            <element signature="n#!!block;n#two#0;n#!!block;n#PersonController#0" expanded="true" />
             <element signature="n#!!block;n#test#0;n#!!block;n#PersonController#0" expanded="true" />
             <element signature="n#!!block;n#test2#0;n#!!block;n#PersonController#0" expanded="true" />
             <element signature="n#!!block;n#myEncrypt#0;n#!!block;n#PersonController#0" expanded="true" />
@@ -767,11 +762,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/grails-app/controllers/db/migrate/test/PersonController.groovy">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7241379" vertical-offset="555" max-vertical-offset="1200">
-          <caret line="80" column="49" selection-start-line="80" selection-start-column="49" selection-end-line="80" selection-end-column="49" />
+        <state vertical-scroll-proportion="0.69827586" vertical-offset="0" max-vertical-offset="1215">
+          <caret line="42" column="31" selection-start-line="42" selection-start-column="31" selection-end-line="42" selection-end-column="31" />
           <folding>
             <element signature="e#25#70#0" expanded="true" />
-            <element signature="n#!!block;n#two#0;n#!!block;n#PersonController#0" expanded="true" />
             <element signature="n#!!block;n#test#0;n#!!block;n#PersonController#0" expanded="true" />
             <element signature="n#!!block;n#test2#0;n#!!block;n#PersonController#0" expanded="true" />
             <element signature="n#!!block;n#myEncrypt#0;n#!!block;n#PersonController#0" expanded="true" />
