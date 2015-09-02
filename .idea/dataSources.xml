@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" hash="3675225443">
+    <data-source source="LOCAL" name="db-migrate-test dev" uuid="fc4b85d2-2f2f-4c71-a82f-c72912eb14a8">
+      <driver-ref>mysql</driver-ref>
+      <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://localhost:3306/demorabbit?useUnicode=yes&amp;characterEncoding=UTF-8</jdbc-url>
+      <user-name>root</user-name>
+      <user-password>dfc3dfcddfcedfcfdfccdfcbdfdfdfc6dfde</user-password>
+      <libraries />
+    </data-source>
+  </component>
+</project>
+
