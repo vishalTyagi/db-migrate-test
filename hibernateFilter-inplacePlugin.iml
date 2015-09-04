@@ -15,9 +15,7 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="module" module-name="db-migrate-test-grailsPlugins" />
     <orderEntry type="library" scope="PROVIDED" name="grails-2.5.0 (3)" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="grails-2.5.0" level="application" />
     <orderEntry type="module-library">
       <library name="Grails User Library (hibernateFilter-inplacePlugin)">
         <CLASSES />
@@ -25,5 +23,7 @@
         <SOURCES />
       </library>
     </orderEntry>
+    <orderEntry type="module" module-name="db-migrate-test-grailsPlugins" />
   </component>
 </module>
+

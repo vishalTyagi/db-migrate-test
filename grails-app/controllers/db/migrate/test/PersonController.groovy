@@ -2,20 +2,17 @@ package db.migrate.test
 
 import org.apache.commons.codec.binary.Base64
 
-import javax.crypto.BadPaddingException
 import javax.crypto.Cipher
-import javax.crypto.IllegalBlockSizeException
 import javax.crypto.KeyGenerator
 import javax.crypto.SecretKey
 import javax.crypto.spec.SecretKeySpec
-import java.security.InvalidKeyException
 import java.security.Key
 
 //import org.bouncycastle.util.encoders.Base64Encoder
 class PersonController {
     Cipher cipher
     String algorithm = "AES"//"DESede";
-    String KEY = "Bar12345Bar12345"; // 128 bit key
+    String KEY = "cGFzc3dvcmQAAAAAAAAAAA=="; // 128 bit key
 
     KeyGenerator keyGenerator = KeyGenerator.getInstance("AES");
 
@@ -39,8 +36,8 @@ class PersonController {
     }
 
     def two() {
-        cipher = Cipher.getInstance("AES");
-        keyGenerator.init(128);
+//        cipher = Cipher.getInstance("AES");
+        //keyGenerator.init(128);
         render(view: "two")
     }
 
@@ -48,7 +45,7 @@ class PersonController {
         String text = params.text
         String encryptedText = ""
         if (text) {
-            Key key = new SecretKeySpec(KEY.getBytes(), algorithm);
+            Key key = secretKey
             cipher = Cipher.getInstance(algorithm);
             println "----------------------->>> ${text}"
             encryptedText = myEncrypt(text, key);
@@ -61,7 +58,7 @@ class PersonController {
         String encryptedText = params.encryptedText
         String normalText = ""
         if (encryptedText) {
-            Key key = new SecretKeySpec(KEY.getBytes(), algorithm);
+            Key key = secretKey
             cipher = Cipher.getInstance(algorithm);
             println "----------------------->>> ${encryptedText}"
             normalText = myDecrypt(encryptedText, key);
